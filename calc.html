@@ -33,9 +33,9 @@
     }
 
     input[type="button"] {
-      width: 100%;
+      width: 118px;
       padding: 20px 25px;
-      background-color: rgba(34, 34, 34, 0.16);
+      background-color: rgba(231, 0, 0, 0.33);
       color: #ffffff;
       font-size: 24px;
       font-weight: bold;
@@ -55,6 +55,16 @@
     }
 
     input[type="text"] {
+       width: 300px;
+       padding: 20px 30px;
+       font-size: 24px;
+       font-weight: bold;
+       border: none;
+       border-radius: 15px;
+       border: 2px solid black;
+     }
+    .res input[type="text"] {
+      width: 180px;
       padding: 20px 30px;
       font-size: 24px;
       font-weight: bold;
@@ -96,7 +106,8 @@
     <td><input type="submit" value="+" onclick="dis('+')"></td>
   </tr>
   <tr>
-    <td colspan="3"><input type="text" READONLY id="result"></td>
+    <td class="res" colspan="2"><input type="text" READONLY id="result"></td>
+    <td><input type="submit" value="%" onclick="dis('%')"> </td>
     <td><input type="submit" value="=" onclick="solve()"> </td>
   </tr>
 </table>
@@ -104,6 +115,19 @@
 <script>
   function dis(val) {
     document.getElementById("input").value += val
+  }
+
+  var val = document.getElementById("calcu");
+  val.onkeyup = function (event) {
+    console.log(event.key)
+    if (event.key=="Enter") {
+      solve();
+      return
+    }
+    /*console.log("Enter");*/
+    let x = document.getElementById("input").value
+    console.log(x);
+    solve();
   }
 
   function solve() {
