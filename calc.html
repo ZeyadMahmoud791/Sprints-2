@@ -106,14 +106,6 @@
     document.getElementById("input").value += val
   }
 
-  var val = document.getElementById("calcu");
-  val.onkeyup = function (event) {
-    console.log("Enter");
-    let x = document.getElementById("input").value
-    console.log(x);
-    solve();
-  }
-
   function solve() {
     let x = document.getElementById("input").value
     if (x=='') return
